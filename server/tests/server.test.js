@@ -11,6 +11,8 @@ const todos = [{
 }, {
     text: 'Second test todo',
     _id: new ObjectID(),
+    completed: true,
+    completedAt: 333
 }];
 
 
@@ -143,5 +145,21 @@ describe('DELETE /todos/:id', () => {
             .delete('/todos/123')
             .expect(404)
             .end(done);
+    });
+});
+
+describe('PATCH /todo/:id', () => {
+    it('should update the todo', (done) => {
+        // grab ID of first item
+        // update text, set completed true
+        // 200
+        // text is changed, completed is true, completedAt is a number, .toBeA
+    });
+
+    it('should clear completedAt when todo is not completed', (done) => {
+        // grab id of second todo item
+        // update text, set completed to false
+        // 200
+        // text is changed, completed is false, completedAt is null .toNotExist
     })
 })
